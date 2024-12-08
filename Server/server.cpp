@@ -24,7 +24,7 @@ void handleClient(int clientSocket) {
     decryptWithPSK(encryptedBuffer, bytesRead, (unsigned char*)pre_shared.c_str(), decryptedBuffer, iv, decryptedLen);
     
     std::cout << "Decrypted Client's Public Key (Hex): ";
-    for (int i = 0; i < decryptedLen; i++) {
+    for (int i = 1; i <= decryptedLen; i++) {
         printf("%02x", decryptedBuffer[i]);
     }
     std::cout << std::endl;
