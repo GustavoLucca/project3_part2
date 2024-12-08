@@ -84,11 +84,11 @@ int main() {
     unsigned char IV[EVP_MAX_IV_LENGTH];
     int bytesRead;
 
-    int ivReceivedBytes = recv(clientSocket, serverIV, EVP_MAX_IV_LENGTH, 0);
+    int ivReceivedBytes = recv(clientSocket, IV, EVP_MAX_IV_LENGTH, 0);
     
     
     unsigned char encryptedBuffer[BUFFER_SIZE];
-    int bytesRead = recv(clientSocket, encryptedServerKey, BUFFER_SIZE, 0);
+    bytesRead = recv(clientSocket, encryptedBuffer, BUFFER_SIZE, 0);
     
     unsigned char decryptedBuffer[BUFFER_SIZE];
     int decryptedLen;
@@ -106,7 +106,7 @@ int main() {
     BIGNUM *serverPubKey = BN_bin2bn(decryptedBuffer, decryptedLen, NULL);
     unsigned char *sharedSecret = (unsigned char *)OPENSSL_malloc(DH_size(privkey));
 
-    int secret_size = DH_compute_key(sharedSecret, serverPubKey, privkey);
+    secret_size = DH_compute_key(sharedSecret, serverPubKey, privkey);
     
 
     std::cout << "Shared Secret (Hex): ";

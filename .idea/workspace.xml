@@ -21,9 +21,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8ecb82c-b352-4cc3-8df5-f44d7a859840" name="Changes" comment="Did TODOs">
+    <list default="true" id="c8ecb82c-b352-4cc3-8df5-f44d7a859840" name="Changes" comment="Did encrypt and decrypt with PSK using Pascal's help.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/common.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Common/common.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Client/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +99,7 @@
       <workItem from="1733445086508" duration="168000" />
       <workItem from="1733445354751" duration="3491000" />
       <workItem from="1733464738810" duration="358000" />
-      <workItem from="1733624708393" duration="305000" />
+      <workItem from="1733624708393" duration="1482000" />
     </task>
     <task id="LOCAL-00001" summary="Start project">
       <option name="closed" value="true" />
@@ -149,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733464751758</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Did encrypt and decrypt with PSK using Pascal's help.">
+      <option name="closed" value="true" />
+      <created>1733625343939</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733625343940</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +183,7 @@
     <MESSAGE value="Update README.md" />
     <MESSAGE value="Start project" />
     <MESSAGE value="Did TODOs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Did TODOs" />
+    <MESSAGE value="Did encrypt and decrypt with PSK using Pascal's help." />
+    <option name="LAST_COMMIT_MESSAGE" value="Did encrypt and decrypt with PSK using Pascal's help." />
   </component>
 </project>
