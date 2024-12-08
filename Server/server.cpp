@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <openssl/dh.h>
 #include <openssl/rand.h>
+#include <cstring>
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
 // Handles client communication
@@ -11,11 +12,11 @@ void handleClient(int clientSocket) {
     unsigned char iv[EVP_MAX_IV_LENGTH];
     int bytesRead;
 
-    int ivReceivedBytes = recv(serverSocket, iv, EVP_MAX_IV_LENGTH, 0);
+    int ivReceivedBytes = recv(clientSocket, iv, EVP_MAX_IV_LENGTH, 0);
     
 
     unsigned char encryptedBuffer[BUFFER_SIZE];
-    int bytesRead = recv(serverSocket, encryptedKey, BUFFER_SIZE, 0);
+    bytesRead = recv(clientSocket, encryptedBuffer, BUFFER_SIZE, 0);
    
 
     unsigned char decryptedBuffer[BUFFER_SIZE];
@@ -83,7 +84,7 @@ void handleClient(int clientSocket) {
 
     int ivSent = send(serverSocket, IV, EVP_MAX_IV_LENGTH, 0);
 
-    int ciphertextSent = send(serverSocket, ciphertext, ciphertextLen, 0);
+    int ciphertextSent = send(serverSocket, ciphertext, ciphertext_len, 0);
     
     
     std::cout << "Encrypted public key sent to client." << std::endl;
@@ -92,7 +93,7 @@ void handleClient(int clientSocket) {
     BIGNUM *clientPubKey = BN_bin2bn(decryptedBuffer, decryptedLen, NULL);
     unsigned char *sharedSecret = (unsigned char *)OPENSSL_malloc(DH_size(privkey));
 
-    int secret_size = DH_compute_key(sharedSecret, clientPubKey, serverDH);
+    secret_size = DH_compute_key(sharedSecret, clientPubKey, privkeyst);
     
 
     std::cout << "Shared Secret (Hex): ";
