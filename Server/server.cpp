@@ -82,9 +82,9 @@ void handleClient(int clientSocket) {
 
     encryptWithPSK(pubkey_bin, pubkey_len, (unsigned char*)pre_shared.c_str(), ciphertext, IV, ciphertext_len);
 
-    int ivSent = send(serverSocket, IV, EVP_MAX_IV_LENGTH, 0);
+    int ivSent = send(clientSocket, IV, EVP_MAX_IV_LENGTH, 0);
 
-    int ciphertextSent = send(serverSocket, ciphertext, ciphertext_len, 0);
+    int ciphertextSent = send(clientSocket, ciphertext, ciphertext_len, 0);
     
     
     std::cout << "Encrypted public key sent to client." << std::endl;
@@ -93,7 +93,7 @@ void handleClient(int clientSocket) {
     BIGNUM *clientPubKey = BN_bin2bn(decryptedBuffer, decryptedLen, NULL);
     unsigned char *sharedSecret = (unsigned char *)OPENSSL_malloc(DH_size(privkey));
 
-    secret_size = DH_compute_key(sharedSecret, clientPubKey, privkeyst);
+    secret_size = DH_compute_key(sharedSecret, clientPubKey, privkey);
     
 
     std::cout << "Shared Secret (Hex): ";
